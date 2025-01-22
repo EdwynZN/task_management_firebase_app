@@ -1,0 +1,36 @@
+{
+  "emulators": {
+    "database": { "port": 9000 },
+    "ui": { "enabled": true },
+    "singleProjectMode": true
+  },
+  "database": { "rules": "database.rules.json" },
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "task-management-1ec0a",
+          "appId": "1:107366668517:android:a13c661068358ad3551c0c",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "ios": {
+        "default": {
+          "projectId": "task-management-1ec0a",
+          "appId": "1:107366668517:ios:d058295ac6843976551c0c",
+          "uploadDebugSymbols": false,
+          "fileOutput": "ios/Runner/GoogleService-Info.plist"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "task-management-1ec0a",
+          "configurations": {
+            "android": "1:107366668517:android:a13c661068358ad3551c0c",
+            "ios": "1:107366668517:ios:d058295ac6843976551c0c"
+          }
+        }
+      }
+    }
+  }
+}
