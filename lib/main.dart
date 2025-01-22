@@ -1,10 +1,26 @@
+import 'dart:async';
+
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
+import 'package:task_management/app/style/theme_provider.dart';
+import 'package:task_management/app/provider/main_injection.dart';
+import 'package:task_management/firebase_options.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  runApp(const MainApp());
+  runZonedGuarded<Future<void>>(() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+
+    FirebaseDatabase.instance.useDatabaseEmulator('localhost', 9000);
+    runApp(const MainApp());
+  }, (error, stackTrace) {
+    debugPrintStack(stackTrace: stackTrace, label: error.toString());
+  });
 }
 
 class MainApp extends StatelessWidget {
@@ -12,12 +28,17 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+    return MultiProvider(
+      providers: providers,
+      builder: (context, _) {
+        final themeNotifier = context.watch<ThemeNotifier>();
+        return MaterialApp.router(
+          routerConfig: context.watch<GoRouter>(),
+          theme: themeNotifier.light,
+          darkTheme: themeNotifier.dark,
+          themeMode: themeNotifier.mode,
+        );
+      },
     );
   }
 }
