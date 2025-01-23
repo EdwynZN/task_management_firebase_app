@@ -3,16 +3,15 @@
     ".read": "now < 1740031200000",
     ".write": "now < 1740031200000",
     "tasks": {
-      "$id": {
-        "title": {
-          ".validate": "newData.isString() && newData.exists()"
-        },
-        "description": {
-          ".validate": "newData.isString() && newData.exists()"
-        },
-        "completed": {
-          ".validate": "newData.isBoolean() && newData.exists()"
-        }
+      ".validate": "newData.hasChildren(['title', 'description', 'completed'])",
+      "title": {
+        ".validate": "newData.isString() && newData.exists() && newData.val().length > 0"
+      },
+      "description": {
+        ".validate": "newData.isString()"
+      },
+      "completed": {
+        ".validate": "newData.isBoolean() && newData.exists()"
       }
     }
   }
