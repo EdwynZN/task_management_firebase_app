@@ -18,8 +18,8 @@ void main() async {
 
     FirebaseDatabase.instance
       ..useDatabaseEmulator('localhost', 9000)
-      ..setPersistenceEnabled(true);
-    
+      ..setPersistenceEnabled(false);
+
     runApp(const MainApp());
   }, (error, stackTrace) {
     debugPrintStack(stackTrace: stackTrace, label: error.toString());

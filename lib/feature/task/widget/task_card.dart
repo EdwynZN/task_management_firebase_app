@@ -7,6 +7,7 @@ class TaskCard extends StatelessWidget {
     required this.title,
     required this.description,
     required this.isCompleted,
+    required this.onChanged,
     super.key,
   });
 
@@ -14,6 +15,7 @@ class TaskCard extends StatelessWidget {
   final String title;
   final String? description;
   final bool isCompleted;
+  final ValueChanged<bool>? onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -49,8 +51,11 @@ class TaskCard extends StatelessWidget {
                   alignment: Alignment.topCenter,
                   child: Checkbox(
                     value: isCompleted,
-                    onChanged: null,
+                    onChanged: onChanged == null
+                      ? null
+                      : (value) => value == null ? null : onChanged!(value),
                     visualDensity: VisualDensity.compact,
+                    tristate: false,
                   ),
                 ),
               ],

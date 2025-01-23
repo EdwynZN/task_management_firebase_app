@@ -39,7 +39,7 @@ class TaskRepositoryImpl implements TaskRepository {
       id: doc.key!,
       title: taskValue['title'],
       description: taskValue['description'],
-      isCompleted: taskValue['complete'],
+      isCompleted: taskValue['completed'],
     );
   }
 }
