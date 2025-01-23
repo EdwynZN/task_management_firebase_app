@@ -12,7 +12,7 @@ class TaskCard extends StatelessWidget {
 
   final String id;
   final String title;
-  final String description;
+  final String? description;
   final bool isCompleted;
 
   @override
@@ -55,7 +55,8 @@ class TaskCard extends StatelessWidget {
                 ),
               ],
             ),
-            Text(description, style: theme.textTheme.bodyLarge),
+            if (description != null)
+              Text(description!, style: theme.textTheme.bodyLarge),
           ],
         ),
       ),

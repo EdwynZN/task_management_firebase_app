@@ -25,7 +25,7 @@ mixin _$UpdateTaskDto {
   @JsonKey(includeIfNull: false)
   String? get description => throw _privateConstructorUsedError;
   @JsonKey(includeIfNull: false)
-  bool? get complete => throw _privateConstructorUsedError;
+  bool? get completed => throw _privateConstructorUsedError;
 
   /// Serializes this UpdateTaskDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -46,7 +46,7 @@ abstract class $UpdateTaskDtoCopyWith<$Res> {
   $Res call(
       {@JsonKey(includeIfNull: false) String? title,
       @JsonKey(includeIfNull: false) String? description,
-      @JsonKey(includeIfNull: false) bool? complete});
+      @JsonKey(includeIfNull: false) bool? completed});
 }
 
 /// @nodoc
@@ -66,7 +66,7 @@ class _$UpdateTaskDtoCopyWithImpl<$Res, $Val extends UpdateTaskDto>
   $Res call({
     Object? title = freezed,
     Object? description = freezed,
-    Object? complete = freezed,
+    Object? completed = freezed,
   }) {
     return _then(_value.copyWith(
       title: freezed == title
@@ -77,9 +77,9 @@ class _$UpdateTaskDtoCopyWithImpl<$Res, $Val extends UpdateTaskDto>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      complete: freezed == complete
-          ? _value.complete
-          : complete // ignore: cast_nullable_to_non_nullable
+      completed: freezed == completed
+          ? _value.completed
+          : completed // ignore: cast_nullable_to_non_nullable
               as bool?,
     ) as $Val);
   }
@@ -96,7 +96,7 @@ abstract class _$$UpdateTaskDtoImplCopyWith<$Res>
   $Res call(
       {@JsonKey(includeIfNull: false) String? title,
       @JsonKey(includeIfNull: false) String? description,
-      @JsonKey(includeIfNull: false) bool? complete});
+      @JsonKey(includeIfNull: false) bool? completed});
 }
 
 /// @nodoc
@@ -114,7 +114,7 @@ class __$$UpdateTaskDtoImplCopyWithImpl<$Res>
   $Res call({
     Object? title = freezed,
     Object? description = freezed,
-    Object? complete = freezed,
+    Object? completed = freezed,
   }) {
     return _then(_$UpdateTaskDtoImpl(
       title: freezed == title
@@ -125,9 +125,9 @@ class __$$UpdateTaskDtoImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      complete: freezed == complete
-          ? _value.complete
-          : complete // ignore: cast_nullable_to_non_nullable
+      completed: freezed == completed
+          ? _value.completed
+          : completed // ignore: cast_nullable_to_non_nullable
               as bool?,
     ));
   }
@@ -139,7 +139,7 @@ class _$UpdateTaskDtoImpl implements _UpdateTaskDto {
   const _$UpdateTaskDtoImpl(
       {@JsonKey(includeIfNull: false) this.title,
       @JsonKey(includeIfNull: false) this.description,
-      @JsonKey(includeIfNull: false) this.complete});
+      @JsonKey(includeIfNull: false) this.completed});
 
   factory _$UpdateTaskDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$UpdateTaskDtoImplFromJson(json);
@@ -152,11 +152,11 @@ class _$UpdateTaskDtoImpl implements _UpdateTaskDto {
   final String? description;
   @override
   @JsonKey(includeIfNull: false)
-  final bool? complete;
+  final bool? completed;
 
   @override
   String toString() {
-    return 'UpdateTaskDto(title: $title, description: $description, complete: $complete)';
+    return 'UpdateTaskDto(title: $title, description: $description, completed: $completed)';
   }
 
   @override
@@ -167,13 +167,13 @@ class _$UpdateTaskDtoImpl implements _UpdateTaskDto {
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.complete, complete) ||
-                other.complete == complete));
+            (identical(other.completed, completed) ||
+                other.completed == completed));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, title, description, complete);
+  int get hashCode => Object.hash(runtimeType, title, description, completed);
 
   /// Create a copy of UpdateTaskDto
   /// with the given fields replaced by the non-null parameter values.
@@ -195,7 +195,7 @@ abstract class _UpdateTaskDto implements UpdateTaskDto {
   const factory _UpdateTaskDto(
           {@JsonKey(includeIfNull: false) final String? title,
           @JsonKey(includeIfNull: false) final String? description,
-          @JsonKey(includeIfNull: false) final bool? complete}) =
+          @JsonKey(includeIfNull: false) final bool? completed}) =
       _$UpdateTaskDtoImpl;
 
   factory _UpdateTaskDto.fromJson(Map<String, dynamic> json) =
@@ -209,7 +209,7 @@ abstract class _UpdateTaskDto implements UpdateTaskDto {
   String? get description;
   @override
   @JsonKey(includeIfNull: false)
-  bool? get complete;
+  bool? get completed;
 
   /// Create a copy of UpdateTaskDto
   /// with the given fields replaced by the non-null parameter values.

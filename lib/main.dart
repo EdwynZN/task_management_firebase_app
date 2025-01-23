@@ -16,7 +16,10 @@ void main() async {
       options: DefaultFirebaseOptions.currentPlatform,
     );
 
-    FirebaseDatabase.instance.useDatabaseEmulator('localhost', 9000);
+    FirebaseDatabase.instance
+      ..useDatabaseEmulator('localhost', 9000)
+      ..setPersistenceEnabled(true);
+    
     runApp(const MainApp());
   }, (error, stackTrace) {
     debugPrintStack(stackTrace: stackTrace, label: error.toString());
