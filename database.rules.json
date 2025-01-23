@@ -3,7 +3,7 @@
     ".read": "now < 1740031200000",
     ".write": "now < 1740031200000",
     "tasks": {
-      ".validate": "newData.hasChildren(['title', 'description', 'completed'])",
+      ".validate": "newData.exists() || newData.hasChildren(['title', 'description', 'completed'])",
       "title": {
         ".validate": "newData.isString() && newData.exists() && newData.val().length > 0"
       },
