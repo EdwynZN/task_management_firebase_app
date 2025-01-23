@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
@@ -16,10 +17,13 @@ void main() async {
       options: DefaultFirebaseOptions.currentPlatform,
     );
 
-    FirebaseDatabase.instance
-      ..useDatabaseEmulator('localhost', 9000)
-      ..setPersistenceEnabled(false);
+    if (kDebugMode) {
+      FirebaseDatabase.instance
+        ..useDatabaseEmulator('localhost', 9000)
+        ..setPersistenceEnabled(false);
+    }
 
+    
     runApp(const MainApp());
   }, (error, stackTrace) {
     debugPrintStack(stackTrace: stackTrace, label: error.toString());
