@@ -6,7 +6,7 @@ class ThemeNotifier extends ChangeNotifier {
   ThemeNotifier();
 
   ThemeMode _mode = ThemeMode.light;
-  final ThemeFlex _theme = ThemeFlex(FlexScheme.damask);
+  final ThemeFlex _theme = ThemeFlex(FlexScheme.bigStone);
 
   ThemeData get light => _theme.light;
   ThemeData get dark => _theme.dark;

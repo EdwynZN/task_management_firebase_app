@@ -1,6 +1,19 @@
 {
   "rules": {
     ".read": "now < 1740031200000",
-    ".write": "now < 1740031200000"
+    ".write": "now < 1740031200000",
+    "tasks": {
+      "$id": {
+        "title": {
+          ".validate": "newData.isString() && newData.exists()"
+        },
+        "description": {
+          ".validate": "newData.isString() && newData.exists()"
+        },
+        "completed": {
+          ".validate": "newData.isBoolean() && newData.exists()"
+        }
+      }
+    }
   }
 }
