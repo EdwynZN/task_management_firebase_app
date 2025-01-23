@@ -44,13 +44,14 @@ jobs:
       - name: Configure Keystore
         env:
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          GOOGLE_JSON_FILE: ${{ secrets.GOOGLE_JSON }}
           KEYSTORE_KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           KEYSTORE_KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
           KEYSTORE_STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
         run: |
           mkdir -p ~/android
-          echo "$PRIVATE_KEY" > key_file.p12.b64
-          base64 -d -i key_file.p12.b64 > android/key_file.p12
+          base64 -d <<< "$PRIVATE_KEY" > android/key_file.p12
+          base64 -d <<< "$GOOGLE_JSON_FILE" > android/app/google-services.json
           echo "storeFile=../key_file.p12" >> android/key.properties
           echo "keyAlias=$KEYSTORE_KEY_ALIAS" >> android/key.properties
           echo "storePassword=$KEYSTORE_STORE_PASSWORD" >> android/key.properties
