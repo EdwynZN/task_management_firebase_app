@@ -3,6 +3,7 @@ import 'package:task_management/feature/task/domain/model/create_task_input.dart
 import 'package:task_management/feature/task/domain/model/task.dart';
 import 'package:task_management/feature/task/domain/model/update_task_input.dart';
 import 'package:task_management/feature/task/domain/task_repository.dart';
+import 'package:task_management/feature/task/infrastructure/mapper/create_task_mapper.dart';
 import 'package:task_management/feature/task/infrastructure/model/update_task_dto.dart';
 
 class TaskRepositoryImpl implements TaskRepository {
@@ -13,12 +14,12 @@ class TaskRepositoryImpl implements TaskRepository {
   @override
   Future<Task> addTask(CreateTaskInput task) async {
     final ref = _databaseReference.push();
-    await ref.set(task.toJson());
+    await ref.set(createTaskToJson(task));
     return Task(
       id: ref.key!,
       title: task.title,
       description: task.description,
-      isCompleted: task.isCompleted,
+      isCompleted: false,
     );
   }
 

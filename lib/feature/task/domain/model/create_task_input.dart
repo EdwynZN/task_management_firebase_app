@@ -7,7 +7,6 @@ part 'create_task_input.g.dart';
 class CreateTaskInput with _$CreateTaskInput {
   const factory CreateTaskInput({
     required String title,
-    @JsonKey(name: 'completed') required bool isCompleted,
     String? description,
   }) = _CreateTaskInput;
 

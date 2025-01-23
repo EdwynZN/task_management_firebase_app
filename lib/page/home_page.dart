@@ -3,6 +3,7 @@ import 'package:firebase_ui_database/firebase_ui_database.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:task_management/app/style/theme_provider.dart';
+import 'package:task_management/feature/task/widget/add_task_dialog.dart';
 import 'package:task_management/feature/task/widget/task_card.dart';
 
 class HomePage extends StatelessWidget {
@@ -37,7 +38,7 @@ class HomePage extends StatelessWidget {
               return TaskCard(
                 id: doc.key!,
                 title: taskValue['title']!,
-                description: taskValue['description']!,
+                description: taskValue['description'],
                 isCompleted: taskValue['completed']!,
               );
             },
@@ -46,8 +47,11 @@ class HomePage extends StatelessWidget {
         },
       ),
       floatingActionButton: FloatingActionButton(
+        tooltip: 'Create task',
         child: const Icon(Icons.add),
-        onPressed: () {},
+        onPressed: () {
+          createTaskDialog(context: context);
+        },
       ),
     );
   }

@@ -21,8 +21,6 @@ CreateTaskInput _$CreateTaskInputFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$CreateTaskInput {
   String get title => throw _privateConstructorUsedError;
-  @JsonKey(name: 'completed')
-  bool get isCompleted => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
 
   /// Serializes this CreateTaskInput to a JSON map.
@@ -41,10 +39,7 @@ abstract class $CreateTaskInputCopyWith<$Res> {
           CreateTaskInput value, $Res Function(CreateTaskInput) then) =
       _$CreateTaskInputCopyWithImpl<$Res, CreateTaskInput>;
   @useResult
-  $Res call(
-      {String title,
-      @JsonKey(name: 'completed') bool isCompleted,
-      String? description});
+  $Res call({String title, String? description});
 }
 
 /// @nodoc
@@ -63,7 +58,6 @@ class _$CreateTaskInputCopyWithImpl<$Res, $Val extends CreateTaskInput>
   @override
   $Res call({
     Object? title = null,
-    Object? isCompleted = null,
     Object? description = freezed,
   }) {
     return _then(_value.copyWith(
@@ -71,10 +65,6 @@ class _$CreateTaskInputCopyWithImpl<$Res, $Val extends CreateTaskInput>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      isCompleted: null == isCompleted
-          ? _value.isCompleted
-          : isCompleted // ignore: cast_nullable_to_non_nullable
-              as bool,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -91,10 +81,7 @@ abstract class _$$CreateTaskInputImplCopyWith<$Res>
       __$$CreateTaskInputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String title,
-      @JsonKey(name: 'completed') bool isCompleted,
-      String? description});
+  $Res call({String title, String? description});
 }
 
 /// @nodoc
@@ -111,7 +98,6 @@ class __$$CreateTaskInputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? title = null,
-    Object? isCompleted = null,
     Object? description = freezed,
   }) {
     return _then(_$CreateTaskInputImpl(
@@ -119,10 +105,6 @@ class __$$CreateTaskInputImplCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      isCompleted: null == isCompleted
-          ? _value.isCompleted
-          : isCompleted // ignore: cast_nullable_to_non_nullable
-              as bool,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -134,10 +116,7 @@ class __$$CreateTaskInputImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$CreateTaskInputImpl implements _CreateTaskInput {
-  const _$CreateTaskInputImpl(
-      {required this.title,
-      @JsonKey(name: 'completed') required this.isCompleted,
-      this.description});
+  const _$CreateTaskInputImpl({required this.title, this.description});
 
   factory _$CreateTaskInputImpl.fromJson(Map<String, dynamic> json) =>
       _$$CreateTaskInputImplFromJson(json);
@@ -145,14 +124,11 @@ class _$CreateTaskInputImpl implements _CreateTaskInput {
   @override
   final String title;
   @override
-  @JsonKey(name: 'completed')
-  final bool isCompleted;
-  @override
   final String? description;
 
   @override
   String toString() {
-    return 'CreateTaskInput(title: $title, isCompleted: $isCompleted, description: $description)';
+    return 'CreateTaskInput(title: $title, description: $description)';
   }
 
   @override
@@ -161,15 +137,13 @@ class _$CreateTaskInputImpl implements _CreateTaskInput {
         (other.runtimeType == runtimeType &&
             other is _$CreateTaskInputImpl &&
             (identical(other.title, title) || other.title == title) &&
-            (identical(other.isCompleted, isCompleted) ||
-                other.isCompleted == isCompleted) &&
             (identical(other.description, description) ||
                 other.description == description));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, title, isCompleted, description);
+  int get hashCode => Object.hash(runtimeType, title, description);
 
   /// Create a copy of CreateTaskInput
   /// with the given fields replaced by the non-null parameter values.
@@ -191,7 +165,6 @@ class _$CreateTaskInputImpl implements _CreateTaskInput {
 abstract class _CreateTaskInput implements CreateTaskInput {
   const factory _CreateTaskInput(
       {required final String title,
-      @JsonKey(name: 'completed') required final bool isCompleted,
       final String? description}) = _$CreateTaskInputImpl;
 
   factory _CreateTaskInput.fromJson(Map<String, dynamic> json) =
@@ -199,9 +172,6 @@ abstract class _CreateTaskInput implements CreateTaskInput {
 
   @override
   String get title;
-  @override
-  @JsonKey(name: 'completed')
-  bool get isCompleted;
   @override
   String? get description;
 
