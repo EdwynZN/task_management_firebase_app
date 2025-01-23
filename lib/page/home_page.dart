@@ -29,10 +29,13 @@ class HomePage extends StatelessWidget {
       body: FirebaseDatabaseQueryBuilder(
         query: FirebaseDatabase.instance.ref().child('tasks'),
         pageSize: 20,
-        builder: (context, doc, _) {
-          final tasks = doc.docs;
+        builder: (context, snap, _) {
+          final tasks = snap.docs;
           return ListView.builder(
             itemBuilder: (context, index) {
+              if (snap.hasMore && index + 1 == snap.docs.length) {
+                snap.fetchMore();
+              }
               final doc = tasks[index];
               final taskValue = doc.value as Map;
               return TaskCard(
