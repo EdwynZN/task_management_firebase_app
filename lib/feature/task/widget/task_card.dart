@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task_management/app/style/constraints.dart';
+import 'package:task_management/common/style/constraints.dart';
 
 class TaskCard extends StatelessWidget {
   const TaskCard({

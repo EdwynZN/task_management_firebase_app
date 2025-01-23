@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 import 'package:task_management/app/router/router.dart';
 import 'package:task_management/app/style/theme_provider.dart';
-import 'package:task_management/feature/task/domain/model/task.dart';
 import 'package:task_management/feature/task/domain/task_repository.dart';
 import 'package:task_management/feature/task/domain/task_repository_read.dart';
 import 'package:task_management/feature/task/domain/use_case/create_task_use_case.dart';
@@ -40,8 +39,4 @@ final List<SingleChildWidget> providers = [
   /// Services and Controllers
   ChangeNotifierProvider<ThemeNotifier>(create: (context) => ThemeNotifier()),
   Provider<GoRouter>(create: (context) => createRouter()),
-  StreamProvider<List<Task>>(
-    create: (context) => context.read<TaskRepositoryRead>().getTasks(),
-    initialData: [],
-  ),
 ];

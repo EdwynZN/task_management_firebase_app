@@ -1,7 +1,7 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:task_management/app/style/constraints.dart';
+import 'package:task_management/common/style/constraints.dart';
 import 'package:task_management/common/lib/async_state.dart';
 import 'package:task_management/common/widget/fade_slide_modal_configuration.dart';
 import 'package:task_management/feature/task/controller/create_task_notifier.dart';
