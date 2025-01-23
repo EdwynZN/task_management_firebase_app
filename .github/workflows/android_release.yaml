@@ -45,17 +45,12 @@ jobs:
         env:
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
           GOOGLE_JSON_FILE: ${{ secrets.GOOGLE_JSON }}
-          KEYSTORE_KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-          KEYSTORE_KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-          KEYSTORE_STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
+          KEY_PROPERTIES_FILE: ${{ secrets.KEY_PROPERTIES }}
         run: |
-          mkdir -p ~/android
-          base64 -d <<< "$PRIVATE_KEY" > android/key_file.p12
-          base64 -d <<< "$GOOGLE_JSON_FILE" > android/app/google-services.json
-          echo "storeFile=../key_file.p12" >> android/key.properties
-          echo "keyAlias=$KEYSTORE_KEY_ALIAS" >> android/key.properties
-          echo "storePassword=$KEYSTORE_STORE_PASSWORD" >> android/key.properties
-          echo "keyPassword=$KEYSTORE_KEY_PASSWORD" >> android/key.properties
+          cd android
+          base64 -d <<< "$PRIVATE_KEY" > key_file.p12
+          base64 -d <<< "$KEY_PROPERTIES_FILE" > key.properties
+          base64 -d <<< "$GOOGLE_JSON_FILE" > app/google-services.json
 
       - name: Build release version for testing purpose
         run: flutter build apk --build-name=1.0.${{ github.run_number }} --build-number=${{ github.run_number }} --no-pub --verbose --release
